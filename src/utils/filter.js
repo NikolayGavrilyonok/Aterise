@@ -1,5 +1,5 @@
-import {WEEK_DURATION_MS} from '../constants/constants';
 import {reduceOtherMonthTransactions} from './map';
+import {DURATION_MS_WEEK} from '../constants/constants';
 
 export const filterTodayTransactions = (data, dateNow = new Date()) => {
   let currentDate = dateNow.getUTCDate();
@@ -19,7 +19,7 @@ export const filterTodayTransactions = (data, dateNow = new Date()) => {
 export const filterLastWeekTransactions = (data, dateNow = new Date()) => {
   let dateNowUTCDate = dateNow.getUTCDate();
   let dateNowMs = dateNow.valueOf();
-  let dateLastWeekMs = dateNowMs - WEEK_DURATION_MS;
+  let dateLastWeekMs = dateNowMs - DURATION_MS_WEEK;
 
   const filteredData = data.filter(item => {
     let transactionDate = new Date(item.date);

@@ -1,7 +1,7 @@
 import {MONTHS} from '../constants/constants';
 
 export const mapTransactionsData = arrayOfFilterFunctions => data => {
-  let dateNow = new Date();
+  const dateNow = new Date();
 
   return arrayOfFilterFunctions.reduce((acc, next) => {
     return [...acc, next(data, dateNow)];

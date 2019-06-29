@@ -13,10 +13,14 @@ export const formatAmount = amount => {
 export const formatDate = dateISO => {
   const date = new Date(dateISO);
   const year = date.getUTCFullYear();
-  let month = date.getUTCMonth();
+  let month = date.getUTCMonth() + 1;
   let day = date.getUTCDate();
 
-  return `${year}/${month < 10 ? `0${month}` : month}/${day < 10 ? `0${day}` : day}`;
+  return [
+    year,
+    `${month < 10 ? `0${month}` : month}`,
+    `${day < 10 ? `0${day}` : day}`
+  ].join('/');
 };
 
 export const formatValue = (value, dataSourceKey) => {
