@@ -7,8 +7,14 @@ import TransactionTable from '../components/TransactionTable/TransactionTable';
 
 const App = props => {
   const [data, mapData] = useState([]);
+  const [isDataLoaded, setDataLoadedFlag] = useState(false);
 
-  useEffect(() => mapData(mapTransactions(props.data)));
+  useEffect(() => {
+    if (!isDataLoaded) {
+      mapData(mapTransactions(props.data));
+      setDataLoadedFlag(true);
+    }
+  });
 
   return (
     <div>

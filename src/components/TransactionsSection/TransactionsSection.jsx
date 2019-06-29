@@ -7,7 +7,7 @@ const TransactionsSection = props => {
   return (
     <div>
       <h3>{sectionTitle}</h3>
-      <p>{`Total: ${totalAmount}`}</p>
+      {totalAmount && <p>{`Total: ${totalAmount}`}</p>}
       {children && <div>{children}</div>}
     </div>
   );
@@ -15,7 +15,7 @@ const TransactionsSection = props => {
 
 TransactionsSection.propTypes = {
   sectionTitle: PropTypes.string,
-  totalAmount: PropTypes.number
+  totalAmount: PropTypes.string
 };
 
 export default TransactionsSection;

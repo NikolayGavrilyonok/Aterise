@@ -13,6 +13,8 @@ const TransactionTable = props => {
     return <td style={STYLES} key={index}>{value}</td>;
   });
 
+  if (!data.length) return <span>{'No transactions'}</span>;
+
   return (
     <table style={STYLES}>
       <thead>
